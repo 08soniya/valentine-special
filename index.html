@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Forever Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:url("https://images.unsplash.com/photo-1516589091380-5d8e87df6999") no-repeat center center/cover;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(8px);
+}
+
+.slide{
+  position:absolute;
+  width:90%;
+  max-width:650px;
+  padding:40px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(20px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.3);
+  text-align:center;
+  color:white;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.7s ease;
+  pointer-events:none;
+}
+
+.slide.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+h2{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+p{margin-bottom:20px;line-height:1.6;}
+
+button{
+  padding:12px 30px;
+  border-radius:40px;
+  border:none;
+  margin:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+  background:linear-gradient(45deg,#ff6ec4,#ff1493);
+  color:white;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+label{
+  display:block;
+  margin:12px 0;
+  cursor:pointer;
+  font-size:1rem;
+}
+
+input[type="radio"]{
+  accent-color:#ff69b4;
+  margin-right:8px;
+}
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.photo-grid img{
+  width:100%;
+  height:140px;
+  border-radius:15px;
+  object-fit:cover;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.photo-grid img:hover{
+  transform:scale(1.07);
+}
+
+#noBtn{
+  position:relative;
+}
+
+#finalMsg{
+  margin-top:20px;
+  font-weight:600;
+}
+
+.floating-heart{
+  position:fixed;
+  bottom:-20px;
+  animation:floatUp 10s linear infinite;
+  color:#ff69b4;
+}
+.text-left{
+    text-align: left;
+    width:350px;
+    margin: auto;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active" id="s1">
+  <h2>Hey My Love 🤍</h2>
+  <p>I made something special for you… just us.</p>
+  <button onclick="nextSlide(1)">Start 💌</button>
+</div>
+
+<!-- Q1 -->
+<div class="slide" id="s2">
+  <h2>First Reaction 😏</h2>
+  <p>What was your first reaction when we met?</p>
+<div class="text-left">
+  <label><input type="radio" name="q1" value="correct"> You couldn’t stop staring at me 👀</label>
+  <label><input type="radio" name="q1" value="correct"> You were nervous but acting cool 😎</label>
+  <label><input type="radio" name="q1" value="correct"> Ladki to bahut chalak h 😏</label>
+  <label><input type="radio" name="q1" value="wrong"> I was totally normal 😌</label>
+</div>
+
+  <button onclick="checkQ1()">Lock Answer 💖</button>
+</div>
+
+<!-- Q2 -->
+<div class="slide" id="s3">
+  <h2>After Engagement 💍</h2>
+  <p>When did we first meet after engagement?</p>
+
+  <div class="photo-grid">
+    <img src="1.jpeg" onclick="wrongQ2()">
+    <img src="2.jpeg" onclick="correctQ2()">
+    <img src="3.jpeg" onclick="wrongQ2()">
+    <img src="4.jpeg" onclick="wrongQ2()">
+    <img src="3.jpeg" onclick="wrongQ2()">
+    <img src="4.jpeg" onclick="wrongQ2()">
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="slide" id="s4">
+  <h2>Our Secret First Couple Dance 💃</h2>
+  <p>Which song was playing that day?</p>
+  <div class="text-left">
+  <label><input type="radio" name="q3" value="tumsehi"> Tum Se Hi</label>
+  <label><input type="radio" name="q3" value="perfect"> Perfect</label>
+  <label><input type="radio" name="q3" value="forever"> Forever Sanam</label>
+  <label><input type="radio" name="q3" value="ve"> Ve Haniyaa</label>
+</div>
+  <button onclick="checkQ3()">Final Answer 💕</button>
+</div>
+
+<!-- Romantic Letter -->
+<div class="slide" id="s5">
+  <h2>For You 🤍</h2>
+  <p>
+    From that first meeting…  
+    to our secret dance moments…  
+    you have been my calm, my chaos, my comfort.  
+    <br><br>
+    With you, even ordinary days feel magical.
+  </p>
+  <button onclick="nextSlide(5)">Continue 💫</button>
+</div>
+
+<!-- Final -->
+<div class="slide" id="s6">
+  <h2>Will You Be Mine Valentine Forever? 💍</h2>
+
+  <button onclick="yesForever()">YES, Always 🤍</button>
+  <button id="noBtn" onmouseover="moveNo()">No 😅</button>
+
+  <p id="finalMsg"></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+
+function nextSlide(current){
+  document.getElementById("s"+current).classList.remove("active");
+  document.getElementById("s"+(current+1)).classList.add("active");
+}
+
+function checkQ1(){
+  const selected=document.querySelector('input[name="q1"]:checked');
+  if(!selected) return;
+
+  if(selected.value==="correct"){
+    nextSlide(2);
+  }else{
+    alert("Sach bolo mister 😏");
+  }
+}
+
+function correctQ2(){ nextSlide(3); }
+function wrongQ2(){ alert("Look properly baby 😌"); }
+
+function checkQ3(){
+  const selected=document.querySelector('input[name="q3"]:checked');
+  if(!selected) return;
+
+  if(selected.value==="tumsehi" || selected.value==="perfect"){
+    nextSlide(4);
+    confettiBurst();
+  }else{
+    alert("Hmm… think about our first dance again 💃");
+  }
+}
+
+function yesForever(){
+  document.getElementById("finalMsg").innerHTML=
+  "Too late 😌 You are permanently mine in every lifetime 🤍";
+  confettiBurst();
+}
+
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*70+"%";
+  btn.style.top=Math.random()*70+"%";
+}
+
+function confettiBurst(){
+  confetti({particleCount:150,spread:80,origin:{y:0.6}});
+}
+
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="floating-heart";
+  heart.innerHTML="🤍";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),10000);
+},800);
+
+</script>
+
+</body>
+</html>
