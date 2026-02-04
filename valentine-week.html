@@ -18,17 +18,40 @@
 
   <div class="gift-grid">
 
-    <div class="gift locked" onclick="openGift('rose')">🌹 Rose Day</div>
-    <div class="gift locked" onclick="openGift('propose')">💍 Propose Day</div>
-    <div class="gift locked" onclick="openGift('chocolate')">🍫 Chocolate Day</div>
-    <div class="gift locked" onclick="openGift('teddy')">🧸 Teddy Day</div>
-    <div class="gift locked" onclick="openGift('promise')">🤞 Promise Day</div>
-    <div class="gift locked" onclick="openGift('hug')">🤗 Hug Day</div>
+    <div class="gift locked" onclick="openGift('rose')">
+      <img src="media/rose.gif" height="80"> 
+      <br />Rose Day</div>
+    <div class="gift locked" onclick="openGift('propose')"><img src="media/propose.gif" height="80"> Propose Day</div>
+    <div class="gift locked" onclick="openGift('chocolate')"><img src="media/choclate.gif" height="80"> Chocolate Day</div>
+    <div class="gift locked" onclick="openGift('teddy')"><img src="media/teddy.gif" height="80"> <br>Teddy Day</div>
+    <div class="gift locked" onclick="openGift('promise')"><img src="media/promise.gif" height="80"> Promise Day</div>
+    <div class="gift locked" onclick="openGift('hug')"><img src="media/hug.gif" height="80"> Hug Day</div>
     <div class="gift locked big" onclick="openGift('valentine')">❤️ Valentine’s Day</div>
 
   </div>
 </section>
 
-<script src="lock.js"></script>
+<script>
+  const giftDates = {
+  rose: "2026-02-07",
+  propose: "2026-02-08",
+  chocolate: "2026-02-09",
+  teddy: "2026-02-10",
+  promise: "2026-02-11",
+  hug: "2026-02-12",
+  valentine: "2026-02-14"
+};
+
+function openGift(day){
+  const today = new Date().toISOString().split("T")[0];
+
+  if(today >= giftDates[day]){
+    window.location.href = `${day}.html`;
+  } else {
+    alert("Not yet 😌 Come back on the right day 💕");
+  }
+}
+
+</script>
 </body>
 </html>

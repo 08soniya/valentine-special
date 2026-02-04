@@ -7,18 +7,39 @@
 <title>Something Special 💖</title>
 
 <link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <section class="slide active" id="intro">
-  <h2>Something Special for You 🤍</h2>
-  <p>Are you ready?</p>
+  <img src="media/please.gif" width="100">
+  <h2>Hey Husband 🤍</h2>
+  <p id="introText"></p>
 
-  <button onclick="goYes()">YES 💖</button>
+  <button id="yesBtn" onclick="goYes()">YES 💖</button>
   <button id="noBtn" onmouseover="moveNo()">No 😅</button>
 </section>
+
+<script>
+const message = "I have a special surprise for you…\nAre you ready?";
+const textEl = document.getElementById("introText"); // Now element exists
+let i = 0;
+
+function typeWriter() {
+  if(i < message.length){
+    const char = message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+    textEl.innerHTML += char;
+    i++;
+    setTimeout(typeWriter, 50);
+  }
+}
+
+window.onload = () => {
+  typeWriter();
+};
+</script>
+
 
 <script>
 function goYes(){
