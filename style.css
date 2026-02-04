@@ -1,0 +1,125 @@
+
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:url("https://images.unsplash.com/photo-1516589091380-5d8e87df6999") no-repeat center center/cover;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(8px);
+}
+
+.slide{
+  position:absolute;
+  width:90%;
+  max-width:650px;
+  padding:40px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(20px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.3);
+  text-align:center;
+  color:white;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.7s ease;
+  pointer-events:none;
+}
+
+.slide.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+h2{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+p{margin-bottom:20px;line-height:1.6;}
+
+button{
+  padding:12px 30px;
+  border-radius:40px;
+  border:none;
+  margin:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+  background:linear-gradient(45deg,#ff6ec4,#ff1493);
+  color:white;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+label{
+  display:block;
+  margin:12px 0;
+  cursor:pointer;
+  font-size:1rem;
+}
+
+input[type="radio"]{
+  accent-color:#ff69b4;
+  margin-right:8px;
+}
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.photo-grid img{
+  width:100%;
+  height:140px;
+  border-radius:15px;
+  object-fit:cover;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.photo-grid img:hover{
+  transform:scale(1.07);
+}
+
+#noBtn{
+  position:relative;
+}
+
+#finalMsg{
+  margin-top:20px;
+  font-weight:600;
+}
+
+.floating-heart{
+  position:fixed;
+  bottom:-20px;
+  animation:floatUp 10s linear infinite;
+  color:#ff69b4;
+}
+.text-left{
+    text-align: left;
+    width:350px;
+    margin: auto;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(-110vh);opacity:0;}
+}
