@@ -8,12 +8,12 @@ const giftDates = {
   valentine: "2026-02-14"
 };
 
-function openGift(day) {
+function openGift(day){
   const today = new Date().toISOString().split("T")[0];
 
-  if (today >= giftDates[day]) {
-    window.location.href = `gifts/${day}.html`;
+  if(today >= giftDates[day]){
+    window.location.href = `${day}.html`;
   } else {
-    alert("Shhh 🤫 This gift unlocks on its special day 💕");
+    alert("Not yet 😌 Come back on the right day 💕");
   }
 }

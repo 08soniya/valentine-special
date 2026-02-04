@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Forever Valentine 💖</title>
+<title>Something Special 💖</title>
 
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -12,90 +12,26 @@
 
 <body>
 
-<!-- SLIDE 1 -->
-<section class="slide active" id="s1">
-  <h2>Hey My Love 🤍</h2>
-  <p>I made something special for you… just us.</p>
-  <button onclick="nextSlide(1)">Start 💌</button>
-</section>
+<section class="slide active" id="intro">
+  <h2>Something Special for You 🤍</h2>
+  <p>Are you ready?</p>
 
-<!-- SLIDE 2 -->
-<section class="slide" id="s2">
-  <h2>First Reaction 😏</h2>
-  <p>What was your first reaction when we met?</p>
-
-  <div class="text-left">
-    <label><input type="radio" name="q1" value="correct"> You couldn’t stop staring 👀</label>
-    <label><input type="radio" name="q1" value="correct"> Nervous but acting cool 😎</label>
-    <label><input type="radio" name="q1" value="correct"> Ladki to bahut chalak h 😏</label>
-    <label><input type="radio" name="q1" value="wrong"> Totally normal 😌</label>
-  </div>
-
-  <button onclick="checkQ1()">Lock Answer 💖</button>
-</section>
-
-<!-- SLIDE 3 -->
-<section class="slide" id="s3">
-  <h2>After Engagement 💍</h2>
-  <p>When did we first meet?</p>
-
-  <div class="photo-grid">
-    <img src="assets/images/1.jpeg" onclick="wrongQ2()">
-    <img src="assets/images/2.jpeg" onclick="correctQ2()">
-    <img src="assets/images/3.jpeg" onclick="wrongQ2()">
-    <img src="assets/images/4.jpeg" onclick="wrongQ2()">
-  </div>
-</section>
-
-<!-- SLIDE 4 -->
-<section class="slide" id="s4">
-  <h2>Our First Dance 💃</h2>
-  <p>Which song was playing?</p>
-
-  <div class="text-left">
-    <label><input type="radio" name="q3" value="tumsehi"> Tum Se Hi</label>
-    <label><input type="radio" name="q3" value="perfect"> Perfect</label>
-    <label><input type="radio" name="q3" value="forever"> Forever Sanam</label>
-    <label><input type="radio" name="q3" value="ve"> Ve Haniyaa</label>
-  </div>
-
-  <button onclick="checkQ3()">Final Answer 💕</button>
-</section>
-
-<!-- SLIDE 5 -->
-<section class="slide" id="s5">
-  <h2>For You 🤍</h2>
-  <p>
-    From our first meeting  
-    to our secret dance moments  
-    you’ve been my calm and my chaos.
-  </p>
-  <button onclick="nextSlide(5)">Continue 💫</button>
-</section>
-
-<!-- SLIDE 6 -->
-<section class="slide" id="s6">
-  <img src="https://media.tenor.com/3zJwq0nY8O0AAAAC/bubu-dudu-love.gif">
-  <h2>Will You Be My Valentine Forever? 💍</h2>
-
-  <button onclick="yesForever()">YES 🤍</button>
+  <button onclick="goYes()">YES 💖</button>
   <button id="noBtn" onmouseover="moveNo()">No 😅</button>
-
-  <p id="finalMsg"></p>
 </section>
 
-<!-- MUSIC -->
-<audio autoplay loop>
-  <source src="assets/audio/love.mp3" type="audio/mpeg">
-</audio>
+<script>
+function goYes(){
+  window.location.href = "valentine-week.html";
+}
 
-<!-- LIBRARIES -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-<!-- JS FILES -->
-<script src="js/slides.js"></script>
-<script src="js/quiz.js"></script>
-<script src="js/effects.js"></script>
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*70+"%";
+  btn.style.top=Math.random()*70+"%";
+}
+</script>
 
 </body>
 </html>
