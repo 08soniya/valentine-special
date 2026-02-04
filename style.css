@@ -123,3 +123,68 @@ input[type="radio"]{
   0%{transform:translateY(0);opacity:1;}
   100%{transform:translateY(-110vh);opacity:0;}
 }
+
+.week-container{
+  text-align:center;
+  padding:40px;
+  color:white;
+}
+
+.week-title{
+  font-family:'Great Vibes',cursive;
+  font-size:3.5rem;
+  margin-bottom:10px;
+}
+
+.week-sub{
+  margin-bottom:30px;
+  opacity:0.9;
+}
+
+.gift-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:20px;
+  max-width:800px;
+  margin:auto;
+}
+
+.gift{
+  background:rgba(255,255,255,0.18);
+  backdrop-filter:blur(20px);
+  border-radius:25px;
+  padding:25px 15px;
+  cursor:pointer;
+  transition:0.4s;
+  position:relative;
+}
+
+.gift span{
+  font-size:2.5rem;
+}
+
+.gift p{
+  font-weight:600;
+  margin-top:10px;
+}
+
+.gift small{
+  opacity:0.7;
+}
+
+.gift.locked::after{
+  content:"🔒";
+  position:absolute;
+  top:10px;
+  right:12px;
+  font-size:1.2rem;
+}
+
+.gift:hover{
+  transform:translateY(-6px) scale(1.05);
+}
+
+.gift.big{
+  grid-column:span 2;
+  background:linear-gradient(45deg,#ff6ec4,#ff1493);
+}

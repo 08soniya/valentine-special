@@ -3,150 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Forever Valentine 💖</title>
 
+<link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
-<link href="/style.css" rel="stylesheet">
-
 </head>
+
 <body>
 
-<!-- Slide 1 -->
-<div class="slide active" id="s1">
+<!-- SLIDE 1 -->
+<section class="slide active" id="s1">
   <h2>Hey My Love 🤍</h2>
   <p>I made something special for you… just us.</p>
   <button onclick="nextSlide(1)">Start 💌</button>
-</div>
+</section>
 
-<!-- Q1 -->
-<div class="slide" id="s2">
+<!-- SLIDE 2 -->
+<section class="slide" id="s2">
   <h2>First Reaction 😏</h2>
   <p>What was your first reaction when we met?</p>
-<div class="text-left">
-  <label><input type="radio" name="q1" value="correct"> You couldn’t stop staring at me 👀</label>
-  <label><input type="radio" name="q1" value="correct"> You were nervous but acting cool 😎</label>
-  <label><input type="radio" name="q1" value="correct"> Ladki to bahut chalak h 😏</label>
-  <label><input type="radio" name="q1" value="wrong"> I was totally normal 😌</label>
-</div>
+
+  <div class="text-left">
+    <label><input type="radio" name="q1" value="correct"> You couldn’t stop staring 👀</label>
+    <label><input type="radio" name="q1" value="correct"> Nervous but acting cool 😎</label>
+    <label><input type="radio" name="q1" value="correct"> Ladki to bahut chalak h 😏</label>
+    <label><input type="radio" name="q1" value="wrong"> Totally normal 😌</label>
+  </div>
 
   <button onclick="checkQ1()">Lock Answer 💖</button>
-</div>
+</section>
 
-<!-- Q2 -->
-<div class="slide" id="s3">
+<!-- SLIDE 3 -->
+<section class="slide" id="s3">
   <h2>After Engagement 💍</h2>
-  <p>When did we first meet after engagement?</p>
+  <p>When did we first meet?</p>
 
   <div class="photo-grid">
-    <img src="1.jpeg" onclick="wrongQ2()">
-    <img src="2.jpeg" onclick="correctQ2()">
-    <img src="3.jpeg" onclick="wrongQ2()">
-    <img src="4.jpeg" onclick="wrongQ2()">
-    <img src="3.jpeg" onclick="wrongQ2()">
-    <img src="4.jpeg" onclick="wrongQ2()">
+    <img src="assets/images/1.jpeg" onclick="wrongQ2()">
+    <img src="assets/images/2.jpeg" onclick="correctQ2()">
+    <img src="assets/images/3.jpeg" onclick="wrongQ2()">
+    <img src="assets/images/4.jpeg" onclick="wrongQ2()">
   </div>
-</div>
+</section>
 
-<!-- Q3 -->
-<div class="slide" id="s4">
-  <h2>Our Secret First Couple Dance 💃</h2>
-  <p>Which song was playing that day?</p>
+<!-- SLIDE 4 -->
+<section class="slide" id="s4">
+  <h2>Our First Dance 💃</h2>
+  <p>Which song was playing?</p>
+
   <div class="text-left">
-  <label><input type="radio" name="q3" value="tumsehi"> Tum Se Hi</label>
-  <label><input type="radio" name="q3" value="perfect"> Perfect</label>
-  <label><input type="radio" name="q3" value="forever"> Forever Sanam</label>
-  <label><input type="radio" name="q3" value="ve"> Ve Haniyaa</label>
-</div>
-  <button onclick="checkQ3()">Final Answer 💕</button>
-</div>
+    <label><input type="radio" name="q3" value="tumsehi"> Tum Se Hi</label>
+    <label><input type="radio" name="q3" value="perfect"> Perfect</label>
+    <label><input type="radio" name="q3" value="forever"> Forever Sanam</label>
+    <label><input type="radio" name="q3" value="ve"> Ve Haniyaa</label>
+  </div>
 
-<!-- Romantic Letter -->
-<div class="slide" id="s5">
+  <button onclick="checkQ3()">Final Answer 💕</button>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide" id="s5">
   <h2>For You 🤍</h2>
   <p>
-    From that first meeting…  
-    to our secret dance moments…  
-    you have been my calm, my chaos, my comfort.  
-    <br><br>
-    With you, even ordinary days feel magical.
+    From our first meeting  
+    to our secret dance moments  
+    you’ve been my calm and my chaos.
   </p>
   <button onclick="nextSlide(5)">Continue 💫</button>
-</div>
+</section>
 
-<!-- Final -->
-<div class="slide" id="s6">
-  <img src="https://tenor.com/view/tkthao219-bubududu-panda-gif-21604017"/>
-  <h2>Will You Be Mine Valentine Forever? 💍</h2>
+<!-- SLIDE 6 -->
+<section class="slide" id="s6">
+  <img src="https://media.tenor.com/3zJwq0nY8O0AAAAC/bubu-dudu-love.gif">
+  <h2>Will You Be My Valentine Forever? 💍</h2>
 
-  <button onclick="yesForever()">YES, Always 🤍</button>
+  <button onclick="yesForever()">YES 🤍</button>
   <button id="noBtn" onmouseover="moveNo()">No 😅</button>
 
   <p id="finalMsg"></p>
-</div>
+</section>
 
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="assets/audio/love.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LIBRARIES -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-<script>
-
-function nextSlide(current){
-  document.getElementById("s"+current).classList.remove("active");
-  document.getElementById("s"+(current+1)).classList.add("active");
-}
-
-function checkQ1(){
-  const selected=document.querySelector('input[name="q1"]:checked');
-  if(!selected) return;
-
-  if(selected.value==="correct"){
-    nextSlide(2);
-  }else{
-    alert("Sach bolo mister 😏");
-  }
-}
-
-function correctQ2(){ nextSlide(3); }
-function wrongQ2(){ alert("Look properly baby 😌"); }
-
-function checkQ3(){
-  const selected=document.querySelector('input[name="q3"]:checked');
-  if(!selected) return;
-
-  if(selected.value==="tumsehi" || selected.value==="perfect"){
-    nextSlide(4);
-    confettiBurst();
-  }else{
-    alert("Hmm… think about our first dance again 💃");
-  }
-}
-
-function yesForever(){
-  document.getElementById("finalMsg").innerHTML=
-  "Too late 😌 You are permanently mine in every lifetime 🤍";
-  confettiBurst();
-}
-
-function moveNo(){
-  const btn=document.getElementById("noBtn");
-  btn.style.position="absolute";
-  btn.style.left=Math.random()*70+"%";
-  btn.style.top=Math.random()*70+"%";
-}
-
-function confettiBurst(){
-  confetti({particleCount:150,spread:80,origin:{y:0.6}});
-}
-
-setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="floating-heart";
-  heart.innerHTML="🤍";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(Math.random()*20+15)+"px";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),10000);
-},800);
-
-</script>
+<!-- JS FILES -->
+<script src="js/slides.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/effects.js"></script>
 
 </body>
 </html>
