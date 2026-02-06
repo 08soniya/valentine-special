@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propose Day 💍</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<section class="slide active" id="p1">
+  <img src="media/propose1.gif" width="180">
+  <h2>Happy Propose Day 💍</h2>
+  <p id="propText"></p>
+  <button onclick="nextSlide('p1','p2')">Next 💌</button>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide" id="p2">
+  <img src="media/propose2.gif" width="120">
+  <h2>Ek Sawaal Hai… 😳</h2>
+  <p>Will you be mine, forever and always?</p>
+
+  <button id="yesBtn" onclick="yesClicked()">YES 💖</button>
+  <button id="noBtn" onmouseover="moveNo()">No 😅</button>
+
+  <div id="reply" class="feedback"></p>
+</section>
+
+<!-- SLIDE 3 : PROPOSAL DATE QUESTION -->
+<section class="slide" id="pr2">
+  <h2>Ek Yaad Hai? 💭</h2>
+  <p>Do you remember the date jab maine tumse propose kiya tha? 😌</p>
+
+  <div class="text-left">
+    <label class="option"><input type="radio" name="q1" value="wrong"> 18 Sep 2024 😅</label>
+    <label class="option"><input type="radio" name="q1" value="correct"> 20 Sep 2024 ❤️</label>
+    <label class="option"><input type="radio" name="q1" value="wrong"> 22 Sep 2024 🤔</label>
+  </div>
+
+  <div id="f1" class="feedback"></div>
+  <button id="n1" class="next-btn" onclick="nextSlide('pr2','p3')">Next 💕</button>
+</section>
+
+<!-- SLIDE 4: MEMORY WALL -->
+<section class="slide" id="p3">
+  <h2>Our Little Moments 📸</h2>
+  <p>Some memories never fade… they just smile back 🤍</p>
+
+  <div class="video-grid">
+    <video controls>
+      <source src="assets/v1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <button onclick="nextSlide('p3','p4')">One Last Thing 💌</button>
+</section>
+
+<!-- SLIDE 5: LOVE LETTER -->
+<section class="slide" id="p4">
+  <h2>For You 💌</h2>
+  <p style="font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.8;">
+    I didn’t just propose to you that day…<br>
+    I chose you for every lifetime 💍<br><br>
+    And I’ll keep choosing you, every single day 🤍<br><br>
+    Happy Propose Day, my love.
+  </p>
+
+  <button onclick="window.location.href='valentine-week.html'">
+    Back to Gifts 💝
+  </button>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
+<script>
+const text="From smiles to silences…\nI want you by my side forever.";
+let i=0;
+
+function typeProp(){
+  if(i<text.length){
+    document.getElementById("propText").innerHTML +=
+      text[i]==="\n" ? "<br>" : text[i];
+    i++;
+    setTimeout(typeProp,50);
+  }
+}
+
+function yesClicked(){
+  confetti({particleCount:200,spread:90,origin:{y:0.6}});
+  document.getElementById("reply").innerHTML =
+    "Too late 😌 You’re already mine 💍";
+  setTimeout(()=>nextSlide('p2','p3'),1200); // Move to memory wall
+}
+
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*70+"%";
+  btn.style.top=Math.random()*70+"%";
+}
+
+// Proposal date question logic
+document.querySelectorAll('input[name="q1"]').forEach(input => {
+  input.addEventListener("change", () => {
+    const feedback = document.getElementById("f1");
+    const nextBtn = document.getElementById("n1");
+
+    document.querySelectorAll('[name="q1"]').forEach(i => i.parentElement.classList.remove("selected"));
+    input.parentElement.classList.add("selected");
+
+    if(input.value === "correct"){
+      feedback.innerHTML = "Bilkul sahi! 💖 Woh din abhi bhi dil me bas gaya hai…";
+      feedback.className = "feedback correct";
+      confetti({particleCount:120,spread:70,origin:{y:0.6}});
+    } else {
+      feedback.innerHTML = "Hehe 😌 Close, but yaad dilate hain… woh din 20 Sep 2024 tha ❤️";
+      feedback.className = "feedback wrong";
+    }
+
+    nextBtn.style.display = "inline-block";
+  });
+});
+window.addEventListener("load", typeProp);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose Day 🌹</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- SLIDE 1 : MESSAGE -->
+<section class="slide active" id="s1">
+  <img src="media/rose1.gif" width="180">
+  <h2>Happy Rose Day🌹</h2>
+  <p id="roseText"></p>
+  <button onclick="nextSlide('s1','s2')">Next 💌</button>
+</section>
+
+<!-- SLIDE 2 : QUESTION 1 -->
+<section class="slide" id="s2">
+  <h2>Rose Day 🌹</h2>
+  <p>Do you remember the day you gave me the first rose?</p>
+
+  <div class="text-left">
+    <label class="option"><input type="radio" name="q1" value="wrong"> Of course, I forgot 😅</label>
+    <label class="option"><input type="radio" name="q1" value="correct"> Yes, how can I forget 💖</label>
+    <label class="option"><input type="radio" name="q1" value="wrong"> Hmm… maybe 🤔</label>
+  </div>
+
+  <div id="f1" class="feedback"></div>
+  <button id="n1" class="next-btn" onclick="nextSlide('s2','s3')">Next 💕</button>
+</section>
+
+<!-- SLIDE 3 : QUESTION 2 -->
+<section class="slide" id="s3">
+  <h2>That Feeling 💓</h2>
+  <p>What was your feeling that day?</p>
+
+  <div class="text-left">
+    <label class="option"><input type="radio" name="q2" value="correct"> Happy & excited 💕</label>
+    <label class="option"><input type="radio" name="q2" value="wrong"> Nervous 😅</label>
+    <label class="option"><input type="radio" name="q2" value="wrong"> Calm 😌</label>
+  </div>
+
+  <div id="f2" class="feedback"></div>
+  <button id="n2" class="next-btn" onclick="nextSlide('s3','s4')">Next 💖</button>
+</section>
+
+<!-- SLIDE 4 : MEMORY WALL -->
+<section class="slide" id="s4">
+  <h2>Our Little Moments 📸</h2>
+  <p>Some memories never fade… they just smile back 🤍</p>
+
+  <div class="photo-grid">
+    <div class="card">
+      <img src="assets/2.jpeg" alt="Memory 1">
+      <p>Our Engagement Day</p>
+    </div>
+    <div class="card">
+      <img src="assets/3.jpeg" alt="Memory 2">
+      <p>Your Birthday</p>
+    </div>
+    <div class="card">
+      <img src="assets/4.jpeg" alt="Memory 3">
+      <p>Last Meetup as Fiance</p>
+    </div>
+  </div>
+
+  <button onclick="nextSlide('s4','s5')">One Last Thing 💌</button>
+</section>
+
+
+<!-- SLIDE 5 : LOVE LETTER -->
+<section class="slide" id="s5">
+  <h2>For You 💌</h2>
+  <p>
+    "Tumhe rose ka wait karna padega, kyunki main tumse door hoon…"<br><br>
+
+    Par woh rose sirf ek phool nahi tha…<br>
+    ye tha <i>humari kahani ka shuruaat</i> 🌹, ek chhoti si yaad jo hamesha dil me rahegi.<br><br>
+
+    Mujhe abhi bhi yaad hai jab tum mujhse milne aaye the,  
+    itni sharmaahat ke saath, rose ko chhoti polybag me leke,  
+    aur sharmate hue bole ki “Mujhe thodi sharam aa rahi hai”…  
+    woh moment, woh muskaan, abhi bhi mujhe yaad hai 🤍<br><br>
+
+    Happy Rose Day, mere forever.<br>
+    Tumhare saath har din wahi magic feel hota hai.
+  </p>
+
+  <button onclick="window.location.href='valentine-week.html'">
+    Back to Valentine Week 💝
+  </button>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+<script>
+// Typing effect
+const msg="Roses are red, violets are blue…\nToday I just want to remind you how much I love you!";
+let i=0;
+function typeWriter(){
+  if(i<msg.length){
+    document.getElementById("roseText").innerHTML+=msg[i]==="\n"?"<br>":msg[i];
+    i++; setTimeout(typeWriter,50);
+  }
+}
+
+// Questions logic
+document.querySelectorAll('input[type="radio"]').forEach(input=>{
+  input.addEventListener("change",()=>{
+    const group=input.name;
+    const feedback=document.getElementById(group==="q1"?"f1":"f2");
+    const nextBtn=document.getElementById(group==="q1"?"n1":"n2");
+
+    document.querySelectorAll(`[name="${group}"]`).forEach(i=>{
+      i.parentElement.classList.remove("selected");
+    });
+
+    input.parentElement.classList.add("selected");
+
+    if(input.value==="correct"){
+      feedback.innerHTML="Aww 💖 Mujhe pata tha tum bhoologe nahi";
+      feedback.className="feedback correct";
+      confetti({particleCount:120,spread:70,origin:{y:0.6}});
+    }else{
+      feedback.innerHTML="Hehe 😌 mujhe pata tha tum mujhse pyar nhi karte";
+      feedback.className="feedback wrong";
+    }
+
+    nextBtn.style.display="inline-block";
+  });
+});
+
+window.onload=typeWriter;
+</script>
+
+</body>
+</html>

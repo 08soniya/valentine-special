@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hug Day 🤗</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    @keyframes hugShake {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(3px, 2px);
+      }
+
+      50% {
+        transform: translate(-3px, -2px);
+      }
+
+      75% {
+        transform: translate(2px, -3px);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .hug-effect {
+      animation: hugShake 0.6s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SLIDE 1 -->
+  <section class="slide active" id="h1">
+    <img src="media/hug.gif" width="140">
+    <h2>Happy Hug Day 🤗</h2>
+    <p id="hugText"></p>
+    <button onclick="nextSlide('h1','h2')">Next 💌</button>
+  </section>
+
+  <!-- SLIDE 2 -->
+  <section class="slide" id="h2">
+    <h2>Ek Hug Ka Matlab? 💭</h2>
+    <p>What does a hug say the most?</p>
+
+    <div class="text-left">
+      <label class="option"><input type="radio" name="q1" value="wrong"> Hello 👋</label>
+      <label class="option"><input type="radio" name="q1" value="correct"> I’m here 🤍</label>
+      <label class="option"><input type="radio" name="q1" value="wrong"> Goodbye 😅</label>
+    </div>
+
+    <div id="hf1" class="feedback"></div>
+    <button id="hn1" class="next-btn" onclick="nextSlide('h2','h3')">Next 💕</button>
+  </section>
+
+  <!-- SLIDE 3 -->
+  <section class="slide" id="h3">
+    <h2>One More 🤍</h2>
+    <p>Your hug feels like…</p>
+
+    <div class="text-left">
+      <label class="option"><input type="radio" name="q2" value="correct"> Home 🏡</label>
+      <label class="option"><input type="radio" name="q2" value="wrong"> A break 😌</label>
+      <label class="option"><input type="radio" name="q2" value="wrong"> A habit 😅</label>
+    </div>
+
+    <div id="hf2" class="feedback"></div>
+    <button id="hn2" class="next-btn" onclick="nextSlide('h3','h4')">Next 💖</button>
+  </section>
+
+  <!-- SLIDE 4 -->
+  <section class="slide" id="h4">
+    <h2>Warm Moments 📸</h2>
+    <p>Some hugs stay forever 🤗</p>
+
+    <div class="video-grid">
+    <video controls>
+      <source src="assets/v1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+    <button onclick="nextSlide('h4','h5')">One Last Hug 💌</button>
+  </section>
+
+  <!-- SLIDE 5 -->
+  <section class="slide" id="h5">
+    <h2>For You 🤍</h2>
+    <p style="font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.8;">
+      If I could,<br>
+      I’d wrap you in my arms right now 🤗<br><br>
+
+      Until then,<br>
+      let this hug travel to you 💞<br><br>
+
+      Happy Hug Day, my safe place.
+    </p>
+
+    <button onclick="window.location.href='valentine-week.html'">
+      Back to Valentine Week 💝
+    </button>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const hMsg = "Some hugs don’t need arms…\nthey reach the heart 🤍";
+    let hi = 0;
+
+    function typeHug() {
+      if (hi < hMsg.length) {
+        document.getElementById("hugText").innerHTML +=
+          hMsg[hi] === "\n" ? "<br>" : hMsg[hi];
+        hi++; setTimeout(typeHug, 50);
+      }
+    }
+
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.addEventListener("change", () => {
+        const g = input.name;
+        const f = document.getElementById(g === "q1" ? "hf1" : "hf2");
+        const n = document.getElementById(g === "q1" ? "hn1" : "hn2");
+
+        document.querySelectorAll(`[name="${g}"]`).forEach(i => i.parentElement.classList.remove("selected"));
+        input.parentElement.classList.add("selected");
+
+        if (input.value === "correct") {
+          document.body.classList.add("hug-effect");
+          navigator.vibrate?.(100);
+          f.innerHTML = "Exactly 🤍 That’s how you feel";
+          confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+          setTimeout(() => document.body.classList.remove("hug-effect"), 600);
+        } else {
+          f.innerHTML = "Hehe 😌 Try again next hug";
+        }
+        n.style.display = "inline-block";
+      });
+    });
+
+    window.onload = typeHug;
+  </script>
+</body>
+
+</html>
