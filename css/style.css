@@ -301,7 +301,7 @@ button{
 .gift.big{
   font-family: 'Great Vibes', cursive;
   font-size: 2rem;
-  grid-column:span 3;
+  grid-column:span 2;
   background:linear-gradient(45deg,#ff6ec4,#ff1493);
 }
 .gift:hover {

@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Promise Day 🤞</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise Day 🤞</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-<!-- SLIDE 1 : WISH -->
-<section class="slide active" id="pr1">
-  <img src="media/promise.gif" width="140">
-  <h2>Happy Promise Day 🤞</h2>
-  <p id="promiseText"></p>
-  <button onclick="nextSlide('pr1','pr2')">Next 💌</button>
-</section>
+  <!-- SLIDE 1 : WISH -->
+  <section class="slide active" id="pr1">
+    <img src="media/promise.gif" width="140">
+    <h2>Happy Promise Day 🤞</h2>
+    <p id="promiseText"></p>
+    <button onclick="nextSlide('pr1','pr2')">Next 💌</button>
+  </section>
 
-<!-- SLIDE 2 : QUESTION 1 -->
-<section class="slide" id="pr2">
-  <h2>Ek Promise Yaad Hai? 💭</h2>
-  <p>What matters most in a promise?</p>
+  <!-- SLIDE 2 : QUESTION 1 -->
+  <section class="slide" id="pr2">
+    <h2>Ek Promise Yaad Hai? 💭</h2>
+    <p>What matters most in a promise, honestly? 🥺🤍</p>
 
-  <div class="text-left">
-    <label class="option"><input type="radio" name="q1" value="wrong"> Words 💬</label>
-    <label class="option"><input type="radio" name="q1" value="correct"> Actions ❤️</label>
-    <label class="option"><input type="radio" name="q1" value="wrong"> Time ⏳</label>
-  </div>
+    <div class="text-left">
+      <label class="option"><input type="radio" name="q1" value="wrong"> Words 💬</label>
+      <label class="option"><input type="radio" name="q1" value="correct"> Actions ❤️</label>
+      <label class="option"><input type="radio" name="q1" value="wrong"> Time ⏳</label>
+    </div>
 
-  <div id="f1" class="feedback"></div>
-  <button id="n1" class="next-btn" onclick="nextSlide('pr2','pr3')">Next 💕</button>
-</section>
+    <div id="f1" class="feedback"></div>
+    <button id="n1" class="next-btn" onclick="nextSlide('pr2','pr3')">Next 💕</button>
+  </section>
 
-<!-- SLIDE 3 : QUESTION 2 -->
-<section class="slide" id="pr3">
-  <h2>One More 💓</h2>
-  <p>A promise should be…</p>
+  <!-- SLIDE 3 : QUESTION 2 -->
+  <section class="slide" id="pr3">
+    <h2>One More 💓</h2>
+    <p>A promise should be… no shortcuts allowed 😌🤞</p>
+    <div class="text-left">
+      <label class="option"><input type="radio" name="q2" value="correct"> Kept forever 🤍</label>
+      <label class="option"><input type="radio" name="q2" value="wrong"> Made casually 😅</label>
+      <label class="option"><input type="radio" name="q2" value="wrong"> Forgotten easily 😌</label>
+    </div>
 
-  <div class="text-left">
-    <label class="option"><input type="radio" name="q2" value="correct"> Kept forever 🤍</label>
-    <label class="option"><input type="radio" name="q2" value="wrong"> Made casually 😅</label>
-    <label class="option"><input type="radio" name="q2" value="wrong"> Forgotten easily 😌</label>
-  </div>
+    <div id="f2" class="feedback"></div>
+    <button id="n2" class="next-btn" onclick="nextSlide('pr3','pr4')">Next 💖</button>
+  </section>
 
-  <div id="f2" class="feedback"></div>
-  <button id="n2" class="next-btn" onclick="nextSlide('pr3','pr4')">Next 💖</button>
-</section>
+  <!-- TYPE YOUR PROMISE -->
+  <section class="slide" id="pr4">
+    <h2>Ek Promise Likho 🤍</h2>
+    <p>Jo tum dil se nibha sako… bina bhoolay 🥹🤍</p>
 
-<!-- TYPE YOUR PROMISE -->
-<section class="slide" id="pr4">
-  <h2>Ek Promise Likho 🤍</h2>
-  <p>Jo tum dil se nibha sako…</p>
-
-  <textarea id="promiseInput"
-    placeholder="I promise that I will…"
-    style="
+    <textarea id="promiseInput" placeholder="I promise that I will…" style="
       width:100%;
       height:120px;
       border-radius:20px;
@@ -68,109 +67,119 @@
       resize:none;
     "></textarea>
 
-  <div id="promiseFeedback" class="feedback"></div>
+    <div id="promiseFeedback" class="feedback"></div>
 
-  <button id="promiseBtn" onclick="savePromise()" disabled>
-    Seal My Promise 🤞
-  </button>
-</section>
+    <button id="promiseBtn" onclick="savePromise()" disabled>
+      Seal My Promise 🤞
+    </button>
+  </section>
 
-<!-- SLIDE 4 : MEMORY WALL -->
-<section class="slide" id="pr5">
-  <h2>Promises We Lived 📸</h2>
-  <p>Some promises don’t need words… they show 🤍</p>
+  <!-- SLIDE 4 : MEMORY WALL -->
+  <section class="slide" id="pr5">
+    <h2>Promises We Lived 📸</h2>
+    <p>Some promises don’t need words… they show 🤍</p>
 
-  <div class="photo-grid">
-    <div class="card">
-      <img src="assets/5.jpeg" alt="Memory 1">
-      <p>Our Wedding Day</p>
+    <div class="photo-grid">
+      <div class="card">
+        <img src="assets/5.jpeg" alt="Memory 1">
+        <p>Our Wedding Day 💍</p>
+      </div>
+      <div class="card">
+        <img src="assets/6.jpeg" alt="Memory 2">
+        <p>Our Haldi Day 💛</p>
+      </div>
+      <div class="card">
+        <img src="assets/7.jpeg" alt="Memory 3">
+        <p>Our Sangeet Day 🎶</p>
+      </div>
     </div>
-    <div class="card">
-      <img src="assets/6.jpeg" alt="Memory 2">
-      <p>Our Haldi Day</p>
-    </div>
-    <div class="card">
-      <img src="assets/7.jpeg" alt="Memory 3">
-      <p>Our Sangeet day</p>
-    </div>
-  </div>
 
-  <button onclick="nextSlide('pr5','pr6')">One Last Promise 💌</button>
-</section>
+    <button onclick="nextSlide('pr5','pr6')">One Last Promise 💌</button>
+  </section>
 
-<!-- SLIDE 5 : LOVE LETTER -->
-<section class="slide" id="pr6">
-  <h2>My Promise To You 💌</h2>
-  <p style="font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.8;">
-    I promise to stand by you,<br>
-    on easy days and the hard ones too 🤍<br><br>
+  <!-- SLIDE 5 : LOVE LETTER -->
+  <section class="slide" id="pr6">
+    <h2>My Promise To You 💌</h2>
+    <p>
+      I promise to stand by you,<br>
+      on the easy days and the hard ones too 🤍🌈<br><br>
 
-    I promise to choose you,<br>
-    even when life isn’t perfect 🤞<br><br>
+      I promise to choose you,<br>
+      even when life isn’t perfect 🤞✨<br><br>
 
-    Happy Promise Day, my forever.
-  </p>
+      I promise to listen, understand, and grow with you,<br>
+      hand in hand, always 🫶💫<br><br>
 
-  <button onclick="window.location.href='valentine-week.html'">
-    Back to Valentine Week 💝
-  </button>
-</section>
+      Please promise me that you’ll always stay by my side, no matter the situation 🥺❤️
+      Let’s keep our ego and anger aside, and always prioritize our relationship, love, and respect 🌹🤍<br><br>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
-<script>
-  const input = document.getElementById("promiseInput");
-const btn = document.getElementById("promiseBtn");
+      Happy Promise Day, my forever ♾️💖
+    </p>
 
-input.addEventListener("input",()=>{
-  if(input.value.trim().length > 5){
-    btn.disabled = false;
-    btn.style.opacity = "1";
-  }else{
-    btn.disabled = true;
-    btn.style.opacity = "0.6";
-  }
-});
+    <button onclick="window.location.href='valentine-week.html'">
+      Back to Valentine Week 💝
+    </button>
+  </section>
 
-function savePromise(){
-  document.getElementById("promiseFeedback").innerHTML =
-    "I trust you 🤍 And I’ll always remember this promise.";
-  confetti({particleCount:120,spread:80,origin:{y:0.6}});
-  setTimeout(()=>nextSlide('pr4','pr5'),1500);
-}
 
-const pMsg="Promises aren’t about saying…\nthey’re about staying 🤍";
-let pi=0;
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const input = document.getElementById("promiseInput");
+    const btn = document.getElementById("promiseBtn");
 
-function typePromise(){
-  if(pi<pMsg.length){
-    document.getElementById("promiseText").innerHTML +=
-      pMsg[pi]==="\n"?"<br>":pMsg[pi];
-    pi++; setTimeout(typePromise,50);
-  }
-}
+    input.addEventListener("input", () => {
+      if (input.value.trim().length > 5) {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      } else {
+        btn.disabled = true;
+        btn.style.opacity = "0.6";
+      }
+    });
 
-// Q logic
-document.querySelectorAll('input[type="radio"]').forEach(input=>{
-  input.addEventListener("change",()=>{
-    const g=input.name;
-    const f=document.getElementById(g==="q1"?"f1":"f2");
-    const n=document.getElementById(g==="q1"?"n1":"n2");
-
-    document.querySelectorAll(`[name="${g}"]`).forEach(i=>i.parentElement.classList.remove("selected"));
-    input.parentElement.classList.add("selected");
-
-    if(input.value==="correct"){
-      f.innerHTML="Exactly 🤍 That’s what makes us strong";
-      confetti({particleCount:100,spread:70,origin:{y:0.6}});
-    }else{
-      f.innerHTML="Hehe 😌 Close, but not quite";
+    function savePromise() {
+      document.getElementById("promiseFeedback").innerHTML =
+  "I trust you 🤍 And I believe in us… always 🤞✨";
+      confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+      setTimeout(() => nextSlide('pr4', 'pr5'), 1500);
     }
-    n.style.display="inline-block";
-  });
-});
 
-window.onload=typePromise;
-</script>
+    const pMsg="Promises aren’t about saying…\nthey’re about staying, every single day 🤍🤞";
+    let pi = 0;
+
+    function typePromise() {
+      if (pi < pMsg.length) {
+        document.getElementById("promiseText").innerHTML +=
+          pMsg[pi] === "\n" ? "<br>" : pMsg[pi];
+        pi++; setTimeout(typePromise, 50);
+      }
+    }
+
+    // Q logic
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.addEventListener("change", () => {
+        const g = input.name;
+        const f = document.getElementById(g === "q1" ? "f1" : "f2");
+        const n = document.getElementById(g === "q1" ? "n1" : "n2");
+
+        document.querySelectorAll(`[name="${g}"]`).forEach(i => i.parentElement.classList.remove("selected"));
+        input.parentElement.classList.add("selected");
+
+        if (input.value === "correct") {
+          f.innerHTML = "Yesss 🥰 Bilkul sahi! You get it 🤍🤞";
+          f.className = "feedback correct";
+          confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+        } else {
+          f.innerHTML = "Hehe 😜 Nice try! Thoda aur dil se socho 💭❤️";
+          f.className = "feedback wrong";
+        }
+        n.style.display = "inline-block";
+      });
+    });
+
+    window.onload = typePromise;
+  </script>
 </body>
+
 </html>

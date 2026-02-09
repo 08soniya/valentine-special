@@ -1,121 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teddy Day 🧸</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  .photo-grid .card img{
-  object-position: top;
-  height: 200px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teddy Day 🧸</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    .photo-grid .card img {
+      object-position: top;
+      height: 200px;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Slide 1: Wish -->
-<section class="slide active" id="t1">
-  <img src="media/teddy.gif" width="120">
-  <h2>Happy Teddy Day 🧸</h2>
-  <p id="teddyText"></p>
-  <button onclick="nextSlide('t1','t2')">Next 💌</button>
-</section>
+  <!-- Slide 1: Wish -->
+  <section class="slide active" id="t1">
+    <img src="media/teddy.gif" width="120">
+    <h2>Happy Teddy Day 🧸</h2>
+    <p id="teddyText"></p>
+    <button onclick="nextSlide('t1','t2')">Next 💌</button>
+  </section>
 
-<!-- Slide 2: Question 1 -->
-<section class="slide" id="t2">
-  <h2>Ek Sawaal Hai 💭</h2>
-  <p>Agar main tumhe teddy doon, kaunsa pehle gale lagana chahogi? 🧸💖</p>
-  <div class="text-left">
-    <label class="option"><input type="radio" name="q1" value="wrong"> Brown wala 🐻</label>
-    <label class="option"><input type="radio" name="q1" value="correct"> White wala 🤍</label>
-    <label class="option"><input type="radio" name="q1" value="wrong"> Pink wala 💕</label>
-  </div>
-  <div id="f1" class="feedback"></div>
-  <button id="n1" class="next-btn" onclick="nextSlide('t2','t3')">Next 💕</button>
-</section>
-
-<!-- Slide 3: Question 2 -->
-<section class="slide" id="t3">
-  <h2>Feelings Time 💓</h2>
-  <p>Jab tum teddy ko gale lagati ho, kaise feel hota hai? 🥰</p>
-  <div class="text-left">
-    <label class="option"><input type="radio" name="q2" value="correct"> Warm & cozy, jaise tum mere saath ho 🤍</label>
-    <label class="option"><input type="radio" name="q2" value="wrong"> Thoda nervous 😅</label>
-    <label class="option"><input type="radio" name="q2" value="wrong"> Bas calm 😌</label>
-  </div>
-  <div id="f2" class="feedback"></div>
-  <button id="n2" class="next-btn" onclick="nextSlide('t3','t4')">Next 💖</button>
-</section>
-
-<!-- Slide 4: Memory Wall -->
-<section class="slide" id="t4">
-  <h2>Sweet Memories 📸</h2>
-  <p>Moments with you are the softest hugs 🧸🤍</p>
-  <div class="photo-grid">
-    <div class="card">
-      <img src="assets/8.jpeg" alt="Memory 1">
-      <p>Feels Like Home</p>
+  <!-- Slide 2: Question 1 -->
+  <section class="slide" id="t2">
+    <h2>Ek Sawaal Hai 💭</h2>
+    <p>Agar main tumhe teddy doon, kaunsa pehle gale lagana chahogi? 🧸💖</p>
+    <div class="text-left">
+      <label class="option"><input type="radio" name="q1" value="wrong"> Brown wala 🐻</label>
+      <label class="option"><input type="radio" name="q1" value="correct"> White wala 🤍</label>
+      <label class="option"><input type="radio" name="q1" value="wrong"> Pink wala 💕</label>
     </div>
-    <div class="card">
-      <img src="assets/9.jpeg" alt="Memory 2">
-      <p>My Safe place</p>
+    <div id="f1" class="feedback"></div>
+    <button id="n1" class="next-btn" onclick="nextSlide('t2','t3')">Next 💕</button>
+  </section>
+
+  <!-- Slide 3: Question 2 -->
+  <section class="slide" id="t3">
+    <h2>Feelings Time 💓</h2>
+    <p>Jab tum teddy ko gale lagati ho, kaise feel hota hai? 🥰</p>
+    <div class="text-left">
+      <label class="option"><input type="radio" name="q2" value="correct"> Warm & cozy, jaise tum mere saath ho
+        🤍</label>
+      <label class="option"><input type="radio" name="q2" value="wrong"> Thoda nervous 😅</label>
+      <label class="option"><input type="radio" name="q2" value="wrong"> Bas calm 😌</label>
     </div>
-    <div class="card">
-      <img src="assets/10.jpeg" alt="Memory 3">
-      <p>My Person</p>
+    <div id="f2" class="feedback"></div>
+    <button id="n2" class="next-btn" onclick="nextSlide('t3','t4')">Next 💖</button>
+  </section>
+
+  <!-- Slide 4: Memory Wall -->
+  <section class="slide" id="t4">
+    <h2>Sweet Memories 📸</h2>
+    <p>Moments with you feel like the softest hugs 🧸🤍</p>
+    <div class="photo-grid">
+      <div class="card">
+        <img src="assets/8.jpeg" alt="Memory 1">
+        <p>Feels Like Home</p>
+      </div>
+      <div class="card">
+        <img src="assets/9.jpeg" alt="Memory 2">
+        <p>My Safe place</p>
+      </div>
+      <div class="card">
+        <img src="assets/10.jpeg" alt="Memory 3">
+        <p>My Person</p>
+      </div>
     </div>
-  </div>
-  <button onclick="nextSlide('t4','t5')">One Last Thing 💌</button>
-</section>
+    <button onclick="nextSlide('t4','t5')">One Last Thing 💌</button>
+  </section>
 
-<!-- Slide 5: Love Letter -->
-<section class="slide" id="t5">
-  <h2>For You 💌</h2>
-  <p style="font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.8;">
-    Every teddy hug reminds me of your warmth…<br>
-    You are my softest comfort, my cozy love 🧸💖<br><br>
-    Happy Teddy Day, my love.
-  </p>
-  <button onclick="window.location.href='valentine-week.html'">Back to Valentine Week 💝</button>
-</section>
+  <!-- Slide 5: Love Letter -->
+  <section class="slide" id="t5">
+    <h2>For You 💌</h2>
+    <p>
+      Every teddy hug reminds me of your warmth…<br>
+      just like being wrapped in your arms 🧸🤍<br><br>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
-<script>
-const msg="Soft hugs, warm cuddles…\nI wish I could hug you forever!";
-let i=0;
-function typeTeddy(){
-  if(i<msg.length){
-    document.getElementById("teddyText").innerHTML += msg[i]==="\n" ? "<br>" : msg[i];
-    i++; setTimeout(typeTeddy,50);
-  }
-}
+      My favorite place in the world is right there —
+      holding you tight, forgetting everything else 🫶✨<br><br>
 
-// Questions logic
-document.querySelectorAll('input[type="radio"]').forEach(input=>{
-  input.addEventListener("change",()=>{
-    const group=input.name;
-    const feedback=document.getElementById(group==="q1"?"f1":"f2");
-    const nextBtn=document.getElementById(group==="q1"?"n1":"n2");
+      If I could, I’d stay like that forever…
+      no distance, no worries, just us 💖🤗<br><br>
 
-    document.querySelectorAll(`[name="${group}"]`).forEach(i=>i.parentElement.classList.remove("selected"));
-    input.parentElement.classList.add("selected");
+      Happy Teddy Day, my love 🧸💕
+      You’ll always be my softest comfort.
+    </p>
 
-    if(input.value==="correct"){
-      feedback.innerHTML="Aww 😍 Just like I thought!";
-      feedback.className="feedback correct";
-      confetti({particleCount:120,spread:70,origin:{y:0.6}});
-    } else {
-      feedback.innerHTML="Hehe 😌 I’ll remind you next time!";
-      feedback.className="feedback wrong";
+    <button onclick="window.location.href='valentine-week.html'">Back to Valentine Week 💝</button>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const msg = "Soft hugs, warm cuddles…\nI wish I could hug you forever!";
+    let i = 0;
+    function typeTeddy() {
+      if (i < msg.length) {
+        document.getElementById("teddyText").innerHTML += msg[i] === "\n" ? "<br>" : msg[i];
+        i++; setTimeout(typeTeddy, 50);
+      }
     }
-    nextBtn.style.display="inline-block";
-  });
-});
 
-window.addEventListener("load", typeTeddy);
-</script>
+    // Questions logic
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.addEventListener("change", () => {
+        const group = input.name;
+        const feedback = document.getElementById(group === "q1" ? "f1" : "f2");
+        const nextBtn = document.getElementById(group === "q1" ? "n1" : "n2");
+
+        document.querySelectorAll(`[name="${group}"]`).forEach(i => i.parentElement.classList.remove("selected"));
+        input.parentElement.classList.add("selected");
+
+        if (input.value === "correct") {
+          feedback.innerHTML = "Aww 🥹 Correct! Isliye toh tum meri favorite ho 🤍✨";
+          feedback.className = "feedback correct";
+          confetti({ particleCount: 140, spread: 80, origin: { y: 0.6 } });
+        }
+        else {
+          feedback.innerHTML = "Hehe 😜 Galat jawab! Lagta hai extra teddy hugs chahiye 🧸💕";
+          feedback.className = "feedback wrong";
+        }
+        nextBtn.style.display = "inline-block";
+      });
+    });
+
+    window.addEventListener("load", typeTeddy);
+  </script>
 </body>
+
 </html>

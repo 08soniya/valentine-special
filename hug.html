@@ -51,7 +51,7 @@
   <!-- SLIDE 2 -->
   <section class="slide" id="h2">
     <h2>Ek Hug Ka Matlab? 💭</h2>
-    <p>What does a hug say the most?</p>
+    <p>What does a hug say the most, without words? 🥺🤍</p>
 
     <div class="text-left">
       <label class="option"><input type="radio" name="q1" value="wrong"> Hello 👋</label>
@@ -66,7 +66,7 @@
   <!-- SLIDE 3 -->
   <section class="slide" id="h3">
     <h2>One More 🤍</h2>
-    <p>Your hug feels like…</p>
+    <p>Your hug feels like… every single time 🤗💞</p>
 
     <div class="text-left">
       <label class="option"><input type="radio" name="q2" value="correct"> Home 🏡</label>
@@ -81,13 +81,13 @@
   <!-- SLIDE 4 -->
   <section class="slide" id="h4">
     <h2>Warm Moments 📸</h2>
-    <p>Some hugs stay forever 🤗</p>
+    <p>Some hugs stay forever, especially yours 🤗🤍</p>
 
     <div class="video-grid">
-    <video controls>
-      <source src="assets/v2.mp4" type="video/mp4">
-    </video>
-  </div>
+      <video controls>
+        <source src="assets/v2.mp4" type="video/mp4">
+      </video>
+    </div>
 
     <button onclick="nextSlide('h4','h5')">One Last Hug 💌</button>
   </section>
@@ -95,15 +95,20 @@
   <!-- SLIDE 5 -->
   <section class="slide" id="h5">
     <h2>For You 🤍</h2>
-    <p style="font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.8;">
+    <p>
       If I could,<br>
-      I’d wrap you in my arms right now 🤗<br><br>
+      I’d wrap you in my arms right now and never let go 🤗🤍<br><br>
 
       Until then,<br>
-      let this hug travel to you 💞<br><br>
+      let this hug travel to you, filled with all my love 💞✨<br><br>
 
-      Happy Hug Day, my safe place.
+      I still remember our first hug on our secret trip to Chakrata…
+      I never thought I’d feel so close to you so soon, but it was magical 🥹🤍
+      And that hug after our dance… do you remember? It still lives in my heart 💃🤗<br><br>
+
+      Happy Hug Day, my safe place, my home 🏡🤍
     </p>
+
 
     <button onclick="window.location.href='valentine-week.html'">
       Back to Valentine Week 💝
@@ -113,7 +118,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
   <script>
-    const hMsg = "Some hugs don’t need arms…\nthey reach the heart 🤍";
+    const hMsg = "Some hugs don’t need arms…\nthey reach the heart, just like yours 🤍🤗";
     let hi = 0;
 
     function typeHug() {
@@ -136,11 +141,13 @@
         if (input.value === "correct") {
           document.body.classList.add("hug-effect");
           navigator.vibrate?.(100);
-          f.innerHTML = "Exactly 🤍 That’s how you feel";
-          confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+          f.innerHTML = "Yesss 🤍 Bilkul sahi! Just like you hold me 🤗✨";
+          f.className = "feedback correct";
+          confetti({ particleCount: 130, spread: 90, origin: { y: 0.6 } });
           setTimeout(() => document.body.classList.remove("hug-effect"), 600);
         } else {
-          f.innerHTML = "Hehe 😌 Try again next hug";
+          f.innerHTML = "Hehe 😜 Nope! Come here, I’ll remind you with a hug 🤍";
+          f.className = "feedback wrong";
         }
         n.style.display = "inline-block";
       });

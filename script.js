@@ -8,7 +8,7 @@ function startFloatingHearts() {
     const heart = document.createElement("div");
     heart.className = "floating-heart";
 
-    const hearts = ["💖", "💗", "💕", "🤍","🌹","🍫"];
+    const hearts = ["💖", "💋", "💗", "💕","😘", "🤍","🌹","🍫"];
     heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
 
     heart.style.left = Math.random() * 100 + "vw";

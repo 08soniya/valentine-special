@@ -1,144 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Valentine Forever ❤️</title>
+  <title>Valentine Forever ❤️</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap"
+    rel="stylesheet">
 
-<style>
-#yesBtn{
-  animation: glow 1.8s infinite alternate;
-  box-shadow:0 0 15px #ff69b4;
-}
+  <style>
+    #yesBtn {
+      animation: glow 1.8s infinite alternate;
+      box-shadow: 0 0 15px #ff69b4;
+    }
 
-@keyframes glow{
-  from{box-shadow:0 0 10px #ff69b4;}
-  to{box-shadow:0 0 30px #ff1493;}
-}
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #ff69b4;
+      }
 
-#noBtn{
-  opacity:0.85;
-  background: linear-gradient(45deg,#999,#777);
-}
-#finalText{
-  margin-bottom: 20px;
-}
-</style>
+      to {
+        box-shadow: 0 0 30px #ff1493;
+      }
+    }
+
+    #noBtn {
+      opacity: 0.85;
+      background: linear-gradient(45deg, #999, #777);
+    }
+
+    #finalText {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- SLIDE 1 -->
-<section class="slide active" id="v1">
-  <img src="media/love.gif" width="180">
-  <h2>My Valentine 🤍</h2>
-  <div id="finalText" class="feedback"></div>
-  <button onclick="nextSlide('v1','v2')">Next 💌</button>
-</section>
+  <!-- SLIDE 1 -->
+  <section class="slide active" id="v1">
+    <img src="media/love.gif" width="180">
+    <h2>My Valentine 🤍</h2>
+    <p id="finalText"></p>
+    <button onclick="nextSlide('v1','v2')">Next 💌</button>
+  </section>
 
-<!-- SLIDE 2 -->
-<section class="slide" id="v2">
-  <h2>So… ek last sawaal 😌</h2>
-  <p>Will you be my Valentine… forever? 💍</p>
+  <!-- SLIDE 2 -->
+  <section class="slide" id="v2">
+     <h2>So… ek last sawaal 😌</h2>
+  <p>Will you be my Valentine… today, tomorrow, and forever? 💍🤍</p>
 
   <button id="yesBtn" onclick="yesForever()">YES, Always 🤍</button>
-  <button id="noBtn" onclick="noClicked()">No 😅</button>
-  <div id="foreverMsg" class="feedback"></div>
-</section>
+  <button id="noBtn">No 😅</button>
+    <div id="foreverMsg" class="feedback"></div>
 
-<!-- SLIDE 3 -->
-<section class="slide" id="v3">
-  <img src="media/valintine.gif" width="200">
-  <h2>Forever Locked 🔒💍</h2>
-  <p>
-    From today…  
-    every Valentine, every hug, every fight,  
-    every smile —  
-    <br><br>
-    it’s **you & me** 🤍  
-    <br>
-    In this lifetime and every next.
-  </p>
-</section>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
+  <!-- SLIDE 3 -->
+  <section class="slide" id="v3">
+    <img src="media/valintine.gif" width="150">
+    <h2>Forever Locked 🔒💍</h2>
+    <p>
+      From today…
+      and every day after this,<br><br>
+
+      every Valentine,<br>
+      every hug,<br>
+      every silly fight,<br>
+      every quiet smile…<br><br>
+
+      it will always be <b>you & me</b> 🤍<br><br>
+
+      In this lifetime,<br>
+      and in every one that follows ♾️💍
+    </p>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
 
 <script>
 const noTexts = [
   "Are you sure? 🥺",
-  "Ek baar aur soch lo… 🤍",
-  "Dil thoda sa toot gaya 💔",
-  "Main phir bhi tumhe choose karungi 😌",
-  "Okay okay… last chance 😳"
+  "Think again 😳",
+  "You can’t escape me 😏",
+  "I’ll still choose you 😌❤️",
+  "Okay… last chance 💍",
+  "opps"
 ];
 
 let noCount = 0;
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const msgBox = document.getElementById("foreverMsg");
 
-function noClicked(){
-  const msgEl = document.getElementById("foreverMsg");
+/* --------------------
+   NO BUTTON TEASE + TEXT CHANGE
+--------------------- */
+noBtn.addEventListener("mouseenter", () => {
+  if (noCount < noTexts.length - 1) {
+    // Move button to random position
+    const x = Math.random() * 70;
+    const y = Math.random() * 70;
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "%";
+    noBtn.style.top = y + "%";
 
-  if(noCount < noTexts.length){
-    msgEl.innerHTML = noTexts[noCount];
+    // Change text on hover
+    noBtn.innerText = noTexts[noCount];
     noCount++;
 
-    // soft shake effect
-    msgEl.style.animation = "hugShake 0.4s";
-    setTimeout(()=>msgEl.style.animation="",400);
+    // tiny shake for fun
+    noBtn.style.transition = "0.2s";
+    noBtn.style.transform = `rotate(${Math.random()*20-10}deg)`;
+    setTimeout(()=> noBtn.style.transform = "rotate(0deg)", 200);
   } else {
-    // Auto surrender 😌💖
-    yesForever();
+    // Last tease: show message and hide NO button
+    noBtn.style.display = "none";
+    msgBox.innerHTML = "Oops 😅 You have only one option now… say YES 💖";
   }
+});
+
+/* --------------------
+   YES BUTTON LOGIC
+--------------------- */
+function yesForever() {
+  msgBox.innerHTML =
+    "Too late 😌💍 You were mine long before this…<br>and you’ll be mine always 🤍♾️";
+
+  confetti({
+    particleCount: 250,
+    spread: 100,
+    origin: { y: 0.6 },
+    colors: ['#ff6ec4', '#ff1493', '#ffffff']
+  });
+
+  setTimeout(() => {
+    document.getElementById("v3").classList.add("active");
+  }, 1400);
+
+  setTimeout(() => {
+    confetti({
+      particleCount: 400,
+      spread: 120,
+      origin: { y: 0.4 }
+    });
+  }, 1600);
 }
 
-// Typing intro
-const msg="From the first hello…\nTo every today…\nI choose you. Always.";
-let i=0;
-function typeFinal(){
-  if(i<msg.length){
+/* --------------------
+   TYPING INTRO
+--------------------- */
+const msg =
+  "From the first hello…\nThrough every today…\nAnd into every tomorrow…\nI choose you. Always 🤍";
+let i = 0;
+
+function typeFinal() {
+  if (i < msg.length) {
     document.getElementById("finalText").innerHTML +=
-      msg[i]==="\n"?"<br>":msg[i];
-    i++; setTimeout(typeFinal,60);
+      msg[i] === "\n" ? "<br>" : msg[i];
+    i++;
+    setTimeout(typeFinal, 60);
   }
 }
 
-// YES button logic
-function yesForever(){
-  document.getElementById("foreverMsg").innerHTML =
-    "Too late 😌 You’re already mine in every lifetime 🤍";
-
-  confetti({
-    particleCount:250,
-    spread:100,
-    origin:{y:0.6},
-    colors:['#ff6ec4','#ff1493','#ffffff']
-  });
-
-  setTimeout(()=>nextSlide('v2','v3'),1500);
-  setTimeout(()=>{
-  confetti({
-    particleCount:400,
-    spread:120,
-    origin:{y:0.4}
-  });
-},1600);
-
-}
-
-// NO button tease
-function moveNo(){
-  const btn=document.getElementById("noBtn");
-  btn.style.position="absolute";
-  btn.style.left=Math.random()*70+"%";
-  btn.style.top=Math.random()*70+"%";
-}
-
-window.onload=typeFinal;
+window.onload = typeFinal;
 </script>
 
+
 </body>
+
 </html>
